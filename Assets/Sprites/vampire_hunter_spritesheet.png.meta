@@ -1,0 +1,1237 @@
+fileFormatVersion: 2
+guid: 8427b23b41487af47bf2e390ab974cbc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8843347914262752508
+    second: vampire_hunter_spritesheet_0
+  - first:
+      213: 2627582832540908550
+    second: vampire_hunter_spritesheet_1
+  - first:
+      213: -4959638467732728713
+    second: vampire_hunter_spritesheet_2
+  - first:
+      213: -7335007413067137532
+    second: vampire_hunter_spritesheet_3
+  - first:
+      213: 6793874238041486730
+    second: vampire_hunter_spritesheet_4
+  - first:
+      213: 4252734346656390078
+    second: vampire_hunter_spritesheet_5
+  - first:
+      213: -7522675617288581487
+    second: vampire_hunter_spritesheet_6
+  - first:
+      213: -3594600595762230535
+    second: vampire_hunter_spritesheet_7
+  - first:
+      213: -1778943239042999494
+    second: vampire_hunter_spritesheet_8
+  - first:
+      213: 6232544328771503398
+    second: vampire_hunter_spritesheet_9
+  - first:
+      213: -133014820556014363
+    second: vampire_hunter_spritesheet_10
+  - first:
+      213: -7248197844320830045
+    second: vampire_hunter_spritesheet_11
+  - first:
+      213: -4403828377093993166
+    second: vampire_hunter_spritesheet_12
+  - first:
+      213: 7320763542147832374
+    second: vampire_hunter_spritesheet_13
+  - first:
+      213: -585511127821069786
+    second: vampire_hunter_spritesheet_14
+  - first:
+      213: 6182371897478979333
+    second: vampire_hunter_spritesheet_15
+  - first:
+      213: -2910094573222055846
+    second: vampire_hunter_spritesheet_16
+  - first:
+      213: 2476942096875630610
+    second: vampire_hunter_spritesheet_17
+  - first:
+      213: 1764296894295059324
+    second: vampire_hunter_spritesheet_18
+  - first:
+      213: -8942336930129905297
+    second: vampire_hunter_spritesheet_19
+  - first:
+      213: 783878824922202523
+    second: vampire_hunter_spritesheet_20
+  - first:
+      213: -4114232936420863790
+    second: vampire_hunter_spritesheet_21
+  - first:
+      213: -1887141468225716638
+    second: vampire_hunter_spritesheet_22
+  - first:
+      213: 3152568729065767276
+    second: vampire_hunter_spritesheet_23
+  - first:
+      213: -1658492957976290043
+    second: vampire_hunter_spritesheet_24
+  - first:
+      213: -1256802867247786207
+    second: vampire_hunter_spritesheet_25
+  - first:
+      213: -2546147599349952573
+    second: vampire_hunter_spritesheet_26
+  - first:
+      213: -7063403936128373913
+    second: vampire_hunter_spritesheet_27
+  - first:
+      213: 611530047303747524
+    second: vampire_hunter_spritesheet_28
+  - first:
+      213: 8313145479192235285
+    second: vampire_hunter_spritesheet_29
+  - first:
+      213: -7676746167269591430
+    second: vampire_hunter_spritesheet_30
+  - first:
+      213: 1712033569862285182
+    second: vampire_hunter_spritesheet_31
+  - first:
+      213: -8360143182774743972
+    second: vampire_hunter_spritesheet_32
+  - first:
+      213: -4602545791627439518
+    second: vampire_hunter_spritesheet_33
+  - first:
+      213: 5668971170243835407
+    second: vampire_hunter_spritesheet_34
+  - first:
+      213: 7099687749794907301
+    second: vampire_hunter_spritesheet_35
+  - first:
+      213: 3510100710345188918
+    second: vampire_hunter_spritesheet_36
+  - first:
+      213: -6985657253976933544
+    second: vampire_hunter_spritesheet_37
+  - first:
+      213: 3048312907923978024
+    second: vampire_hunter_spritesheet_38
+  - first:
+      213: 2420701181072445252
+    second: vampire_hunter_spritesheet_39
+  - first:
+      213: -5645968784109239707
+    second: vampire_hunter_spritesheet_40
+  - first:
+      213: 4807313702381683426
+    second: vampire_hunter_spritesheet_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1022
+        width: 104
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfca2dee212e9ba70800000000000000
+      internalID: 8843347914262752508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1022
+        width: 100
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cf3872aac077420800000000000000
+      internalID: 2627582832540908550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1022
+        width: 100
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7749d644713db2bb0800000000000000
+      internalID: -4959638467732728713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1022
+        width: 137
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40eb64fce91d43a90800000000000000
+      internalID: -7335007413067137532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1022
+        width: 109
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85f32fbf90b84e50800000000000000
+      internalID: 6793874238041486730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1022
+        width: 119
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb9e883b5fb40b30800000000000000
+      internalID: 4252734346656390078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 774
+        width: 127
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e850702661a9790800000000000000
+      internalID: -7522675617288581487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 798
+        width: 177
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa4f2c9dc96d1ec0800000000000000
+      internalID: -3594600595762230535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 814
+        width: 143
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b5241ac8cef47e0800000000000000
+      internalID: -1778943239042999494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 802
+        width: 165
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6250d4bab027e7650800000000000000
+      internalID: 6232544328771503398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 791
+        width: 164
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec75e6b9bf672ef0800000000000000
+      internalID: -133014820556014363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 774
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad3183967a396b90800000000000000
+      internalID: -7248197844320830045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 538
+        width: 168
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d078b6c6572e2c0800000000000000
+      internalID: -4403828377093993166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 538
+        width: 166
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a1a5e87a3989560800000000000000
+      internalID: 7320763542147832374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 538
+        width: 148
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622df2e3bb8dfd7f0800000000000000
+      internalID: -585511127821069786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 555
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f97923c723cc550800000000000000
+      internalID: 6182371897478979333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 538
+        width: 118
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50be4c67644d97d0800000000000000
+      internalID: -2910094573222055846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 538
+        width: 102
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210bb75b6bddf5220800000000000000
+      internalID: 2476942096875630610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 538
+        width: 102
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b28ce7daa0c7810800000000000000
+      internalID: 1764296894295059324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 548
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69ffb9c0ff66e380800000000000000
+      internalID: -8942336930129905297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 539
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91407a53a5e0ea00800000000000000
+      internalID: 783878824922202523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 324
+        width: 134
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d01c6541fe47e6c0800000000000000
+      internalID: -4114232936420863790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 324
+        width: 608
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26e3f7945d68fc5e0800000000000000
+      internalID: -1887141468225716638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 323
+        width: 454
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6148f95e8c20cb20800000000000000
+      internalID: 3152568729065767276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 79
+        width: 125
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d16591179dbf8e0800000000000000
+      internalID: -1658492957976290043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 79
+        width: 127
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127d0097370fe8ee0800000000000000
+      internalID: -1256802867247786207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 79
+        width: 180
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf480b9f344aacd0800000000000000
+      internalID: -2546147599349952573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 79
+        width: 231
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76be8f92b8fb9fd90800000000000000
+      internalID: -7063403936128373913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 79
+        width: 185
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7840786579c7800800000000000000
+      internalID: 611530047303747524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 251
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51dc565b4c93e5370800000000000000
+      internalID: 8313145479192235285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 248
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a76fd05b808b67590800000000000000
+      internalID: -7676746167269591430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 262
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e777f27067d52c710800000000000000
+      internalID: 1712033569862285182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 268
+        width: 33
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5cce47b11ecafb80800000000000000
+      internalID: -8360143182774743972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 219
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262d393ecf87020c0800000000000000
+      internalID: -4602545791627439518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 238
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06705c6e3b3cae40800000000000000
+      internalID: 5668971170243835407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 203
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4c7b68468278260800000000000000
+      internalID: 7099687749794907301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 213
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 636a8fdaff166b030800000000000000
+      internalID: 3510100710345188918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 206
+        width: 41
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85bf2163db5fd0f90800000000000000
+      internalID: -6985657253976933544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 169
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827fb096078cd4a20800000000000000
+      internalID: 3048312907923978024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 166
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44f013516ee089120800000000000000
+      internalID: 2420701181072445252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 179
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5628932fd4d75a1b0800000000000000
+      internalID: -5645968784109239707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vampire_hunter_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 158
+        width: 46
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e20452975207b240800000000000000
+      internalID: 4807313702381683426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1371b48741a152042ad069e3efecd720
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      vampire_hunter_spritesheet_0: 8843347914262752508
+      vampire_hunter_spritesheet_1: 2627582832540908550
+      vampire_hunter_spritesheet_10: -133014820556014363
+      vampire_hunter_spritesheet_11: -7248197844320830045
+      vampire_hunter_spritesheet_12: -4403828377093993166
+      vampire_hunter_spritesheet_13: 7320763542147832374
+      vampire_hunter_spritesheet_14: -585511127821069786
+      vampire_hunter_spritesheet_15: 6182371897478979333
+      vampire_hunter_spritesheet_16: -2910094573222055846
+      vampire_hunter_spritesheet_17: 2476942096875630610
+      vampire_hunter_spritesheet_18: 1764296894295059324
+      vampire_hunter_spritesheet_19: -8942336930129905297
+      vampire_hunter_spritesheet_2: -4959638467732728713
+      vampire_hunter_spritesheet_20: 783878824922202523
+      vampire_hunter_spritesheet_21: -4114232936420863790
+      vampire_hunter_spritesheet_22: -1887141468225716638
+      vampire_hunter_spritesheet_23: 3152568729065767276
+      vampire_hunter_spritesheet_24: -1658492957976290043
+      vampire_hunter_spritesheet_25: -1256802867247786207
+      vampire_hunter_spritesheet_26: -2546147599349952573
+      vampire_hunter_spritesheet_27: -7063403936128373913
+      vampire_hunter_spritesheet_28: 611530047303747524
+      vampire_hunter_spritesheet_29: 8313145479192235285
+      vampire_hunter_spritesheet_3: -7335007413067137532
+      vampire_hunter_spritesheet_30: -7676746167269591430
+      vampire_hunter_spritesheet_31: 1712033569862285182
+      vampire_hunter_spritesheet_32: -8360143182774743972
+      vampire_hunter_spritesheet_33: -4602545791627439518
+      vampire_hunter_spritesheet_34: 5668971170243835407
+      vampire_hunter_spritesheet_35: 7099687749794907301
+      vampire_hunter_spritesheet_36: 3510100710345188918
+      vampire_hunter_spritesheet_37: -6985657253976933544
+      vampire_hunter_spritesheet_38: 3048312907923978024
+      vampire_hunter_spritesheet_39: 2420701181072445252
+      vampire_hunter_spritesheet_4: 6793874238041486730
+      vampire_hunter_spritesheet_40: -5645968784109239707
+      vampire_hunter_spritesheet_41: 4807313702381683426
+      vampire_hunter_spritesheet_5: 4252734346656390078
+      vampire_hunter_spritesheet_6: -7522675617288581487
+      vampire_hunter_spritesheet_7: -3594600595762230535
+      vampire_hunter_spritesheet_8: -1778943239042999494
+      vampire_hunter_spritesheet_9: 6232544328771503398
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
