@@ -13,8 +13,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -51,11 +51,11 @@ TagManager:
   - name: ForeGround
     uniqueID: 1053090503
     locked: 0
-  - name: Enemy
-    uniqueID: 4002067841
-    locked: 0
   - name: Player
     uniqueID: 3883254885
+    locked: 0
+  - name: Enemy
+    uniqueID: 4002067841
     locked: 0
   - name: elisa
     uniqueID: 549576803
