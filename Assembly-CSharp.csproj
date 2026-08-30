@@ -53,16 +53,16 @@
     <Analyzer Include="D:\Unit\6000.5.9f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EnemyAI.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\ExperienceReward.cs" />
-    <Compile Include="Assets\Scripts\MapBounds.cs" />
-    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\EnemyAttack.cs" />
-    <Compile Include="Assets\Scripts\PlayerExperience.cs" />
+    <Compile Include="Assets\Enemy\Base\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Player\Character\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
+    <Compile Include="Assets\Player\Combat\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\World\Levels\Scripts\MapBounds.cs" />
+    <Compile Include="Assets\Core\Stats\Health.cs" />
+    <Compile Include="Assets\Enemy\Combat\Scripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Enemy\Loot\Scripts\ExperienceReward.cs" />
+    <Compile Include="Assets\Enemy\AI\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\Player\Stats\Scripts\PlayerStats.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
