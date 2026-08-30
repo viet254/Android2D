@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// Gán script này lên cùng GameObject với PlayerController.
 /// Kéo các Image (Filled) tương ứng vào Inspector.
 /// </summary>
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDamageable
 {
     // ────────────────────────────────────────────────────────────────
     //  Chỉ số cơ bản
@@ -57,7 +57,17 @@ public class PlayerStats : MonoBehaviour
     // ────────────────────────────────────────────────────────────────
     //  Nội bộ
     // ────────────────────────────────────────────────────────────────
+    [Header("Combat Stats")]
+    [SerializeField] private int attack = 15;
+    [SerializeField] private int defense = 0;
+    [SerializeField] private float moveSpeed = 5f;
+
     private PlayerController _controller;
+    private Health _health;
+
+    public int Attack => attack;
+    public int Defense => defense;
+    public float MoveSpeed => moveSpeed;
     public bool IsDead { get; private set; }
 
     // HP hiển thị trơn tru (lerp về currentHP)
@@ -71,9 +81,15 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         _controller = GetComponent<PlayerController>();
+        _health = GetComponent<Health>();
+        if (_health == null) _health = gameObject.AddComponent<Health>();
+        _health.ConfigureMaxHealth(Mathf.RoundToInt(maxHP));
+        _health.OnHealthChanged += HandleHealthChanged;
+        _health.OnDied += Die;
         _spawnPoint = transform.position;
 
-        currentHP  = maxHP;
+        _health.ResetHealth();
+        currentHP  = _health.CurrentHealth;
         currentMP  = maxMP;   // bug fix: was maxHP
         currentST  = maxST;
         _displayHP = maxHP;
@@ -85,6 +101,13 @@ public class PlayerStats : MonoBehaviour
     // ────────────────────────────────────────────────────────────────
     //  Update
     // ────────────────────────────────────────────────────────────────
+    private void HandleHealthChanged(int current, int maximum)
+    {
+        currentHP = current;
+        maxHP = maximum;
+        if (redBar != null && current < maximum) StartCoroutine(PulseOrb());
+    }
+
     void Update()
     {
         if (IsDead) return;
@@ -113,20 +136,24 @@ public class PlayerStats : MonoBehaviour
     {
         if (IsDead) return;
 
-        currentHP = Mathf.Clamp(currentHP - amount, 0f, maxHP);
+        int reducedDamage = Mathf.Max(0, Mathf.RoundToInt(amount) - defense);
+        _health.TakeDamage(new DamageInfo(reducedDamage, DamageType.Physical, null));
+    }
 
-        // Pulse animation trên orb khi mất máu
-        if (redBar != null)
-            StartCoroutine(PulseOrb());
-
-        if (currentHP <= 0f)
-            Die();
+    public void TakeDamage(DamageInfo damageInfo)
+    {
+        int reducedDamage = damageInfo.DamageType == DamageType.True
+            ? damageInfo.Amount
+            : Mathf.Max(0, damageInfo.Amount - defense);
+        if (reducedDamage <= 0 || IsDead) return;
+        if (_controller != null) _controller.OnDamaged();
+        _health.TakeDamage(new DamageInfo(reducedDamage, damageInfo.DamageType, damageInfo.Source));
     }
 
     public void HealHP(float amount)
     {
         if (IsDead) return;
-        currentHP = Mathf.Min(currentHP + amount, maxHP);
+        _health.Heal(Mathf.RoundToInt(amount));
     }
 
     public void ChangeMP(float delta)
@@ -176,7 +203,8 @@ public class PlayerStats : MonoBehaviour
     {
         IsDead = false;
 
-        currentHP  = maxHP;
+        _health.ResetHealth();
+        currentHP  = _health.CurrentHealth;
         currentMP  = maxMP;
         currentST  = maxST;
         _displayHP = maxHP;

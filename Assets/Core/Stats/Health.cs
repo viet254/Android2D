@@ -10,7 +10,7 @@ using UnityEngine;
 ///   2. Các script khác subscribe vào OnDamaged / OnDied để phản ứng.
 ///   3. Gây damage bằng cách gọi health.TakeDamage(amount).
 /// </summary>
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
     // ─────────────────────────────────────────────────────────────
     //  INSPECTOR
@@ -43,13 +43,17 @@ public class Health : MonoBehaviour
     /// Gọi khi nhận damage thành công.
     /// Tham số: lượng damage đã nhận (int).
     /// </summary>
-    public event Action<int> OnDamaged;
+    public event Action<DamageInfo> OnDamaged;
+    public event Action<int> OnDamagedAmount;
 
     /// <summary>
     /// Gọi đúng 1 lần khi HP xuống 0.
     /// EnemyAI và ExperienceReward đều subscribe vào event này.
     /// </summary>
     public event Action OnDied;
+
+    public event Action<int, int> OnHealthChanged;
+    public event Action OnDeath;
 
     // ─────────────────────────────────────────────────────────────
     //  LIFECYCLE
@@ -73,25 +77,44 @@ public class Health : MonoBehaviour
     /// <param name="damage">Lượng damage. Phải > 0 mới có tác dụng.</param>
     public void TakeDamage(int damage)
     {
-        // Không nhận damage nếu đã chết
-        if (IsDead) return;
-        // Bỏ qua damage <= 0
-        if (damage <= 0) return;
-
-        // Trừ HP, không xuống dưới 0
-        CurrentHealth = Mathf.Max(CurrentHealth - damage, 0);
-
-        // Thông báo cho các subscriber (EnemyAI sẽ bật animation Hurt)
-        OnDamaged?.Invoke(damage);
-
-        // Kiểm tra chết
-        if (CurrentHealth <= 0)
-            Die();
+        TakeDamage(new DamageInfo(damage, DamageType.Physical, null));
     }
 
     // ─────────────────────────────────────────────────────────────
     //  PRIVATE
     // ─────────────────────────────────────────────────────────────
+
+    public void TakeDamage(DamageInfo damageInfo)
+    {
+        if (IsDead || damageInfo.Amount <= 0) return;
+
+        CurrentHealth = Mathf.Max(CurrentHealth - damageInfo.Amount, 0);
+        OnDamaged?.Invoke(damageInfo);
+        OnDamagedAmount?.Invoke(damageInfo.Amount);
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+
+        if (CurrentHealth <= 0) Die();
+    }
+
+    public void Heal(int amount)
+    {
+        if (IsDead || amount <= 0) return;
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+    }
+
+    public void ConfigureMaxHealth(int value, bool refill = true)
+    {
+        maxHealth = Mathf.Max(1, value);
+        if (refill)
+        {
+            CurrentHealth = maxHealth;
+            IsDead = false;
+            OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        }
+    }
+
+    public void ResetHealth() => ConfigureMaxHealth(maxHealth);
 
     private void Die()
     {
@@ -102,5 +125,6 @@ public class Health : MonoBehaviour
 
         // Thông báo: EnemyAI bật animation Death, ExperienceReward trao XP
         OnDied?.Invoke();
+        OnDeath?.Invoke();
     }
 }

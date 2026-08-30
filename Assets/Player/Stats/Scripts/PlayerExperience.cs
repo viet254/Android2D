@@ -41,8 +41,10 @@ public class PlayerExperience : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
 
     public int CurrentXP     => currentXP;
+    public int CurrentExperience => currentXP;
     public int CurrentLevel  => currentLevel;
     public int XPToNextLevel => xpToNextLevel;
+    public int ExperienceToNextLevel => xpToNextLevel;
 
     // ─────────────────────────────────────────────────────────────
     //  EVENTS
@@ -54,6 +56,7 @@ public class PlayerExperience : MonoBehaviour
     /// Dùng để cập nhật thanh XP trên UI.
     /// </summary>
     public event Action<int, int, int> OnXPGained;
+    public event Action<int, int> OnExperienceChanged;
 
     /// <summary>
     /// Gọi khi Level Up.
@@ -93,7 +96,7 @@ public class PlayerExperience : MonoBehaviour
         Debug.Log($"[XP] +{amount} XP | Level {currentLevel} | {currentXP} / {xpToNextLevel} XP");
 
         // Vòng lặp để xử lý lên nhiều level liên tiếp trong 1 lần nhận XP
-        while (currentXP >= xpToNextLevel)
+        while (xpToNextLevel > 0 && currentXP >= xpToNextLevel)
         {
             currentXP    -= xpToNextLevel;   // Giữ XP thừa cho level tiếp
             currentLevel += 1;
@@ -104,6 +107,8 @@ public class PlayerExperience : MonoBehaviour
             // Thông báo: mở rộng sau này tăng stat, hiệu ứng,...
             OnLevelUp?.Invoke(currentLevel);
         }
+
+        OnExperienceChanged?.Invoke(currentXP, xpToNextLevel);
     }
 
     // ─────────────────────────────────────────────────────────────

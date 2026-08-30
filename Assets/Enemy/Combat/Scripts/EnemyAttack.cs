@@ -42,6 +42,11 @@ public class EnemyAttack : MonoBehaviour
     // Guard chống multi-hit trong cùng 1 animation
     private bool hasDealtDamage = false;
 
+    public void Configure(EnemyData data)
+    {
+        if (data != null) attackDamage = data.Damage;
+    }
+
     // ─────────────────────────────────────────────────────────────
     //  ANIMATION EVENTS — gọi từ clip OrcAttack1 / OrcAttack2
     // ─────────────────────────────────────────────────────────────
@@ -69,23 +74,14 @@ public class EnemyAttack : MonoBehaviour
 
         if (hit != null)
         {
-            // Ưu tiên gọi PlayerController.TakeDamage() — phù hợp với codebase hiện tại
-            PlayerController pc = hit.GetComponent<PlayerController>();
-            if (pc != null)
+            IDamageable damageable = hit.GetComponentInParent(typeof(IDamageable)) as IDamageable;
+            if (damageable != null)
             {
-                pc.TakeDamage(attackDamage);
+                damageable.TakeDamage(new DamageInfo(attackDamage, DamageType.Physical, gameObject));
                 hasDealtDamage = true;
                 Debug.Log($"[EnemyAttack] {gameObject.name} gây {attackDamage} damage cho Player.");
-                return;
             }
 
-            // Fallback: nếu target có Health (dành cho future use case)
-            Health targetHealth = hit.GetComponent<Health>();
-            if (targetHealth != null && !targetHealth.IsDead)
-            {
-                targetHealth.TakeDamage(attackDamage);
-                hasDealtDamage = true;
-            }
         }
     }
 

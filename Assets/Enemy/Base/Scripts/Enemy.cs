@@ -1,20 +1,23 @@
 using UnityEngine;
 
-/// <summary>
-/// Script này đã được thay thế bởi EnemyAI.cs.
-///
-/// HƯỚNG DẪN:
-///   1. Trong Inspector của Enemy GameObject:
-///      → Remove component "Enemy (Script)" (click ⋮ → Remove Component)
-///      → Add component "EnemyAI"
-///      → Add component "Health"
-///      → Add component "EnemyAttack"
-///      → Add component "ExperienceReward"
-///
-///   2. File này có thể xóa sau khi đã setup xong.
-/// </summary>
+[DefaultExecutionOrder(-100)]
+[RequireComponent(typeof(Health), typeof(EnemyAI), typeof(EnemyAttack))]
 public class Enemy : MonoBehaviour
 {
-    // Script này intentionally để trống.
-    // Xem EnemyAI.cs để biết logic AI của Orc.
+    [SerializeField] private EnemyData data;
+    public EnemyData Data => data;
+
+    private void Awake()
+    {
+        if (data == null)
+        {
+            Debug.LogError($"[Enemy] {name} has no EnemyData assigned.", this);
+            return;
+        }
+        GetComponent<Health>().ConfigureMaxHealth(data.MaxHealth);
+        GetComponent<EnemyAI>().Configure(data);
+        GetComponent<EnemyAttack>().Configure(data);
+        ExperienceReward reward = GetComponent<ExperienceReward>();
+        if (reward != null) reward.Configure(data);
+    }
 }

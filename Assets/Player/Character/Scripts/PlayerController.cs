@@ -130,17 +130,21 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
 
-        // Reset tấn công
+        OnDamaged();
+
+        if (stats != null)
+            stats.TakeDamage(amount);
+    }
+
+    public void OnDamaged()
+    {
+        if (isDead) return;
         if (isAttacking)
         {
             isAttacking = false;
             anim.SetInteger("isAttack", 0);
         }
-
         anim.SetTrigger("isHurt");
-
-        if (stats != null)
-            stats.TakeDamage(amount);
     }
 
     // ---- Gọi bởi PlayerStats ----

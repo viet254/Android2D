@@ -53,15 +53,27 @@
     <Analyzer Include="D:\Unit\6000.5.9f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Items\ItemData.cs" />
+    <Compile Include="Assets\Core\Combat\DamageType.cs" />
     <Compile Include="Assets\Enemy\Base\Scripts\Enemy.cs" />
+    <Compile Include="Assets\UI\HUD\Scripts\ExperienceHUD.cs" />
     <Compile Include="Assets\Player\Character\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Core\Combat\IDamageable.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
     <Compile Include="Assets\Player\Combat\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Items\ItemType.cs" />
+    <Compile Include="Assets\UI\HUD\Scripts\AnimatedExperienceHUD.cs" />
+    <Compile Include="Assets\Enemy\Stats\EnemyData.cs" />
+    <Compile Include="Assets\Inventory\Scripts\InventorySlot.cs" />
+    <Compile Include="Assets\Items\Weapons\WeaponData.cs" />
     <Compile Include="Assets\World\Levels\Scripts\MapBounds.cs" />
     <Compile Include="Assets\Core\Stats\Health.cs" />
+    <Compile Include="Assets\Core\Combat\DamageInfo.cs" />
     <Compile Include="Assets\Enemy\Combat\Scripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Inventory\Scripts\Inventory.cs" />
     <Compile Include="Assets\Enemy\Loot\Scripts\ExperienceReward.cs" />
     <Compile Include="Assets\Enemy\AI\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\Items\ItemRarity.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerStats.cs" />
   </ItemGroup>
   <ItemGroup>

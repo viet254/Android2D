@@ -70,10 +70,10 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             // Lấy component Health — hoạt động với MỌI Enemy có Health.cs
-            Health enemyHealth = hit.GetComponent<Health>();
-            if (enemyHealth != null && !enemyHealth.IsDead)
+            IDamageable damageable = hit.GetComponentInParent(typeof(IDamageable)) as IDamageable;
+            if (damageable != null)
             {
-                enemyHealth.TakeDamage(attackDamage);
+                damageable.TakeDamage(new DamageInfo(attackDamage, DamageType.Physical, gameObject));
                 Debug.Log($"[PlayerAttack] Đánh trúng {hit.gameObject.name} | -{attackDamage} HP");
             }
         }

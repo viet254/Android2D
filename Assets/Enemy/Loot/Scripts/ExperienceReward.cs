@@ -33,6 +33,11 @@ public class ExperienceReward : MonoBehaviour
     // Guard: chỉ trao XP đúng 1 lần
     private bool hasRewardedXP = false;
 
+    public void Configure(EnemyData data)
+    {
+        if (data != null) experienceReward = data.ExperienceReward;
+    }
+
     // ─────────────────────────────────────────────────────────────
     //  LIFECYCLE
     // ─────────────────────────────────────────────────────────────

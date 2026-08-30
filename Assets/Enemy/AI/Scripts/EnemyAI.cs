@@ -146,15 +146,25 @@ public class EnemyAI : MonoBehaviour
     void OnEnable()
     {
         // Đăng ký lắng nghe event từ Health
-        health.OnDamaged += OnTakeDamage;
+        health.OnDamagedAmount += OnTakeDamage;
         health.OnDied    += OnDied;
     }
 
     void OnDisable()
     {
         // Hủy đăng ký khi script tắt để tránh memory leak
-        health.OnDamaged -= OnTakeDamage;
+        health.OnDamagedAmount -= OnTakeDamage;
         health.OnDied    -= OnDied;
+    }
+
+    public void Configure(EnemyData data)
+    {
+        if (data == null) return;
+        patrolSpeed = data.MoveSpeed * 0.5f;
+        chaseSpeed = data.MoveSpeed;
+        detectionRange = data.DetectionRange;
+        attackRange = data.AttackRange;
+        attackCooldown = data.AttackCooldown;
     }
 
     void Update()
