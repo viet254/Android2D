@@ -61,6 +61,7 @@
     <Compile Include="Assets\Core\Combat\IDamageable.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
     <Compile Include="Assets\Player\Combat\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Inventory\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Items\ItemType.cs" />
     <Compile Include="Assets\UI\HUD\Scripts\AnimatedExperienceHUD.cs" />
     <Compile Include="Assets\Enemy\Stats\EnemyData.cs" />

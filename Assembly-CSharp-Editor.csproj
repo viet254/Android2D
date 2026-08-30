@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\MapBoundsEditor.cs" />
+    <Compile Include="Assets\Inventory\Editor\TrainingSwordPickupSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
