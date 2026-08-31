@@ -15,7 +15,7 @@ MonoBehaviour:
   id: training_sword
   displayName: Training Sword
   description: A basic sword used to verify the weapon data foundation.
-  icon: {fileID: 0}
+  icon: {fileID: -4898731100839214754, guid: dd0930751a93bd248b916eefe3d532ce, type: 3}
   itemType: 0
   rarity: 0
   maxStack: 1

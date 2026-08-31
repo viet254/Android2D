@@ -41,6 +41,7 @@ public static class TrainingSwordPickupSetup
         }
 
         const string undoName = "Setup Training Sword Pickup";
+        Undo.IncrementCurrentGroup();
         int undoGroup = Undo.GetCurrentGroup();
         Undo.SetCurrentGroupName(undoName);
 
@@ -83,13 +84,45 @@ public static class TrainingSwordPickupSetup
         quantityProperty.intValue = 1;
         pickupSerializedObject.ApplyModifiedProperties();
 
-        Undo.RecordObject(spriteRenderer, undoName);
-        spriteRenderer.sprite = trainingSword.Icon;
+        Sprite pickupSprite = spriteRenderer.sprite;
+        if (pickupSprite == null)
+        {
+            Debug.LogError(
+                "Training Sword Pickup setup could not assign the TrainingSword icon because " +
+                "TrainingSwordPickup's SpriteRenderer has no sprite. No replacement sprite was selected.",
+                spriteRenderer);
+        }
+        else if (trainingSword.Icon == null)
+        {
+            Undo.RecordObject(trainingSword, undoName);
 
-        if (trainingSword.Icon == null)
+            SerializedObject trainingSwordSerializedObject = new SerializedObject(trainingSword);
+            trainingSwordSerializedObject.Update();
+            SerializedProperty iconProperty = trainingSwordSerializedObject.FindProperty("icon");
+
+            if (iconProperty == null)
+            {
+                Debug.LogError(
+                    "Training Sword Pickup setup failed to find the serialized 'icon' field on TrainingSword.asset.",
+                    trainingSword);
+            }
+            else
+            {
+                iconProperty.objectReferenceValue = pickupSprite;
+                trainingSwordSerializedObject.ApplyModifiedProperties();
+                EditorUtility.SetDirty(trainingSword);
+
+                Debug.Log(
+                    $"Assigned sprite '{pickupSprite.name}' from TrainingSwordPickup to TrainingSword.asset Icon. " +
+                    "The asset was marked dirty but was not saved automatically.",
+                    trainingSword);
+            }
+        }
+        else if (trainingSword.Icon != pickupSprite)
         {
             Debug.LogWarning(
-                "TrainingSword.asset has no icon. TrainingSwordPickup was created with an empty SpriteRenderer; no replacement sprite was selected.",
+                $"TrainingSword.asset already has icon '{trainingSword.Icon.name}', which differs from " +
+                $"TrainingSwordPickup's sprite '{pickupSprite.name}'. The existing icon was left unchanged.",
                 trainingSword);
         }
 
@@ -125,7 +158,7 @@ public static class TrainingSwordPickupSetup
         }
 
         PlayerController[] players = UnityEngine.Object
-            .FindObjectsByType<PlayerController>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FindObjectsByType<PlayerController>(FindObjectsInactive.Include)
             .Where(candidate => candidate.gameObject.scene == scene)
             .ToArray();
 
@@ -214,7 +247,7 @@ public static class TrainingSwordPickupSetup
     private static GameObject[] FindPickupObjects(Scene scene)
     {
         return UnityEngine.Object
-            .FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FindObjectsByType<Transform>(FindObjectsInactive.Include)
             .Where(candidate => candidate.gameObject.scene == scene && candidate.name == PickupName)
             .Select(candidate => candidate.gameObject)
             .ToArray();
