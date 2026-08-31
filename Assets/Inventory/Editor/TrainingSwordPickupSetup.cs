@@ -10,7 +10,66 @@ using UnityEngine.SceneManagement;
 public static class TrainingSwordPickupSetup
 {
     private const string MenuPath = "Tools/Android2D/Inventory/Setup Training Sword Pickup";
+    private const string EquipTestMenuPath = "Tools/Android2D/Inventory/Equip Training Sword (Play Mode)";
+    private const string UnequipTestMenuPath = "Tools/Android2D/Inventory/Unequip Weapon (Play Mode)";
     private const string PickupName = "TrainingSwordPickup";
+
+    [MenuItem(EquipTestMenuPath)]
+    private static void EquipTrainingSwordInPlayMode()
+    {
+        if (!Application.isPlaying)
+        {
+            Debug.LogError("Enter Play Mode before running the Training Sword equip test.");
+            return;
+        }
+
+        Scene scene = SceneManager.GetActiveScene();
+        PlayerController player = FindPlayerInScene(scene);
+        WeaponData trainingSword = FindTrainingSwordAsset();
+        if (player == null || trainingSword == null)
+            return;
+
+        Equipment equipment = player.GetComponent<Equipment>();
+        if (equipment == null)
+        {
+            Debug.LogError("Player has no Equipment component. Exit Play Mode and run Setup Training Sword Pickup.", player);
+            return;
+        }
+
+        bool succeeded = equipment.Equip(trainingSword);
+        if (succeeded)
+            Debug.Log($"Equipped '{trainingSword.DisplayName}'. Final player attack: {player.GetComponent<PlayerStats>().GetAttackDamage()}.", equipment);
+        else
+            Debug.LogWarning("Equip failed safely. Confirm TrainingSword is present in Player Inventory.", equipment);
+    }
+
+    [MenuItem(UnequipTestMenuPath)]
+    private static void UnequipWeaponInPlayMode()
+    {
+        if (!Application.isPlaying)
+        {
+            Debug.LogError("Enter Play Mode before running the weapon unequip test.");
+            return;
+        }
+
+        Scene scene = SceneManager.GetActiveScene();
+        PlayerController player = FindPlayerInScene(scene);
+        if (player == null)
+            return;
+
+        Equipment equipment = player.GetComponent<Equipment>();
+        if (equipment == null)
+        {
+            Debug.LogError("Player has no Equipment component.", player);
+            return;
+        }
+
+        bool succeeded = equipment.Unequip(EquipmentSlotType.Weapon);
+        if (succeeded)
+            Debug.Log($"Unequipped weapon. Final player attack: {player.GetComponent<PlayerStats>().GetAttackDamage()}.", equipment);
+        else
+            Debug.LogWarning("Unequip failed safely. The weapon remains equipped if Inventory cannot accept it.", equipment);
+    }
 
     [MenuItem(MenuPath)]
     private static void SetupTrainingSwordPickup()
@@ -49,6 +108,12 @@ public static class TrainingSwordPickupSetup
         if (inventory == null)
         {
             inventory = Undo.AddComponent<Inventory>(player.gameObject);
+        }
+
+        Equipment equipment = player.GetComponent<Equipment>();
+        if (equipment == null)
+        {
+            equipment = Undo.AddComponent<Equipment>(player.gameObject);
         }
 
         if (pickupObject == null)
@@ -128,6 +193,7 @@ public static class TrainingSwordPickupSetup
 
         EditorUtility.SetDirty(player.gameObject);
         EditorUtility.SetDirty(inventory);
+        EditorUtility.SetDirty(equipment);
         EditorUtility.SetDirty(pickupObject);
         EditorUtility.SetDirty(pickupObject.transform);
         EditorUtility.SetDirty(trigger);
@@ -141,7 +207,7 @@ public static class TrainingSwordPickupSetup
 
         Debug.Log(
             $"Training Sword Pickup setup complete in Scene '{scene.name}'. " +
-            $"Player '{player.name}' has Inventory, and '{PickupName}' has ItemPickup, SpriteRenderer, " +
+            $"Player '{player.name}' has Inventory and Equipment, and '{PickupName}' has ItemPickup, SpriteRenderer, " +
             "and a trigger CircleCollider2D. Review the Scene, then press Ctrl+S to save it.",
             pickupObject);
     }

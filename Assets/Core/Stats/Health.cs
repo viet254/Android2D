@@ -96,11 +96,14 @@ public class Health : MonoBehaviour, IDamageable
         if (CurrentHealth <= 0) Die();
     }
 
-    public void Heal(int amount)
+    public bool Heal(int amount)
     {
-        if (IsDead || amount <= 0) return;
+        if (IsDead || amount <= 0 || CurrentHealth >= maxHealth)
+            return false;
+
         CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        return true;
     }
 
     public void ConfigureMaxHealth(int value, bool refill = true)

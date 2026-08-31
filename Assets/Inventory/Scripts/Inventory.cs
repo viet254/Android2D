@@ -22,6 +22,44 @@ public class Inventory : MonoBehaviour
         EnsureValidSlots();
     }
 
+    public bool CanAddItem(ItemData item, int quantity)
+    {
+        if (item == null || quantity <= 0)
+            return false;
+
+        EnsureValidSlots();
+
+        int availableCapacity = 0;
+        for (int i = 0; i < slots.Count; i++)
+        {
+            InventorySlot slot = slots[i];
+            if (slot.IsEmpty)
+            {
+                availableCapacity += item.MaxStack;
+            }
+            else if (slot.Item == item)
+            {
+                availableCapacity += Mathf.Max(0, item.MaxStack - slot.Quantity);
+            }
+
+            if (availableCapacity >= quantity)
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Adds the complete requested quantity or leaves the inventory unchanged.
+    /// </summary>
+    public bool TryAddItem(ItemData item, int quantity)
+    {
+        if (!CanAddItem(item, quantity))
+            return false;
+
+        return AddItem(item, quantity) == 0;
+    }
+
     /// <summary>
     /// Adds as many items as possible and returns the quantity that did not fit.
     /// </summary>
@@ -88,6 +126,31 @@ public class Inventory : MonoBehaviour
             return true;
 
         return item != null && GetItemCount(item) >= quantity;
+    }
+
+    public bool TryUseItem(int slotIndex, GameObject user)
+    {
+        EnsureValidSlots();
+
+        if (slotIndex < 0 || slotIndex >= slots.Count || user == null)
+            return false;
+
+        InventorySlot slot = slots[slotIndex];
+        if (slot == null || slot.IsEmpty)
+            return false;
+
+        ConsumableData consumable = slot.Item as ConsumableData;
+        if (consumable == null || consumable.ItemType != ItemType.Consumable)
+            return false;
+
+        if (!consumable.TryUse(user))
+            return false;
+
+        if (slot.RemoveQuantity(1) != 1)
+            return false;
+
+        OnInventoryChanged?.Invoke();
+        return true;
     }
 
     public int GetItemCount(ItemData item)

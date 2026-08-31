@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// Gán script này lên cùng GameObject với PlayerController.
 /// Kéo các Image (Filled) tương ứng vào Inspector.
 /// </summary>
+[RequireComponent(typeof(Health))]
 public class PlayerStats : MonoBehaviour, IDamageable
 {
     // ────────────────────────────────────────────────────────────────
@@ -14,7 +15,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     // ────────────────────────────────────────────────────────────────
     [Header("HP (máu)")]
     public float maxHP = 100f;
-    public float currentHP;
+    public float currentHP => _health != null ? _health.CurrentHealth : maxHP;
 
     [Header("MP (mana)")]
     public float maxMP = 100f;
@@ -64,8 +65,34 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     private PlayerController _controller;
     private Health _health;
+    private Equipment _equipment;
 
-    public int Attack => attack;
+    public float CurrentHP => currentHP;
+    public float MaxHP => _health != null ? _health.MaxHealth : maxHP;
+    public int BaseAttack => attack;
+    public int Attack => GetAttackDamage();
+
+    public int GetAttackDamage()
+    {
+        if (_equipment == null)
+            _equipment = GetComponent<Equipment>();
+
+        int weaponDamage = _equipment != null && _equipment.EquippedWeapon != null
+            ? _equipment.EquippedWeapon.Damage
+            : 0;
+
+        return Mathf.Max(0, attack + weaponDamage);
+    }
+
+    public DamageType GetAttackDamageType()
+    {
+        if (_equipment == null)
+            _equipment = GetComponent<Equipment>();
+
+        return _equipment != null && _equipment.EquippedWeapon != null
+            ? _equipment.EquippedWeapon.DamageType
+            : DamageType.Physical;
+    }
     public int Defense => defense;
     public float MoveSpeed => moveSpeed;
     public bool IsDead { get; private set; }
@@ -82,17 +109,15 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         _controller = GetComponent<PlayerController>();
         _health = GetComponent<Health>();
+        _equipment = GetComponent<Equipment>();
         if (_health == null) _health = gameObject.AddComponent<Health>();
         _health.ConfigureMaxHealth(Mathf.RoundToInt(maxHP));
         _health.OnHealthChanged += HandleHealthChanged;
         _health.OnDied += Die;
         _spawnPoint = transform.position;
-
-        _health.ResetHealth();
-        currentHP  = _health.CurrentHealth;
         currentMP  = maxMP;   // bug fix: was maxHP
         currentST  = maxST;
-        _displayHP = maxHP;
+        _displayHP = _health.CurrentHealth;
 
         if (redBar != null)
             _redBarOriginalScale = redBar.transform.localScale;
@@ -103,8 +128,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
     // ────────────────────────────────────────────────────────────────
     private void HandleHealthChanged(int current, int maximum)
     {
-        currentHP = current;
-        maxHP = maximum;
         if (redBar != null && current < maximum) StartCoroutine(PulseOrb());
     }
 
@@ -180,7 +203,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     void UpdateBars()
     {
         // Orb HP dùng _displayHP (lerp mượt), không nhảy đột ngột
-        if (redBar    != null) redBar.fillAmount    = _displayHP / maxHP;
+        if (redBar    != null) redBar.fillAmount    = _displayHP / Mathf.Max(1, _health.MaxHealth);
         if (blueBar   != null) blueBar.fillAmount   = currentMP  / maxMP;
         if (yellowBar != null) yellowBar.fillAmount = currentST  / maxST;
     }
@@ -204,10 +227,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
         IsDead = false;
 
         _health.ResetHealth();
-        currentHP  = _health.CurrentHealth;
         currentMP  = maxMP;
         currentST  = maxST;
-        _displayHP = maxHP;
+        _displayHP = _health.CurrentHealth;
 
         transform.position = _spawnPoint;
         _controller.OnRespawn();

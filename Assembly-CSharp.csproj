@@ -55,13 +55,18 @@
   <ItemGroup>
     <Compile Include="Assets\Items\ItemData.cs" />
     <Compile Include="Assets\Core\Combat\DamageType.cs" />
+    <Compile Include="Assets\Items\Consumables\ConsumableData.cs" />
     <Compile Include="Assets\Enemy\Base\Scripts\Enemy.cs" />
     <Compile Include="Assets\UI\HUD\Scripts\ExperienceHUD.cs" />
+    <Compile Include="Assets\UI\Equipment\Scripts\EquipmentUI.cs" />
     <Compile Include="Assets\Player\Character\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Core\Combat\IDamageable.cs" />
+    <Compile Include="Assets\UI\Equipment\Scripts\EquipmentSlotUI.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
     <Compile Include="Assets\Player\Combat\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\UI\Inventory\Scripts\InventorySlotUI.cs" />
     <Compile Include="Assets\Inventory\Scripts\ItemPickup.cs" />
+    <Compile Include="Assets\UI\Inventory\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Items\ItemType.cs" />
     <Compile Include="Assets\UI\HUD\Scripts\AnimatedExperienceHUD.cs" />
     <Compile Include="Assets\Enemy\Stats\EnemyData.cs" />
@@ -71,11 +76,14 @@
     <Compile Include="Assets\Core\Stats\Health.cs" />
     <Compile Include="Assets\Core\Combat\DamageInfo.cs" />
     <Compile Include="Assets\Enemy\Combat\Scripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Player\Equipment\Scripts\Equipment.cs" />
     <Compile Include="Assets\Inventory\Scripts\Inventory.cs" />
     <Compile Include="Assets\Enemy\Loot\Scripts\ExperienceReward.cs" />
     <Compile Include="Assets\Enemy\AI\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Items\ItemRarity.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Player\Equipment\Scripts\EquipmentSlotType.cs" />
+    <Compile Include="Assets\Player\Equipment\Scripts\EquipmentSlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -19,5 +19,5 @@ MonoBehaviour:
   moveSpeed: 3
   detectionRange: 5
   attackRange: 1.2
-  experienceReward: 20
+  experienceReward: 30
   attackCooldown: 1.5

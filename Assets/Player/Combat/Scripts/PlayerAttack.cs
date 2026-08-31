@@ -16,6 +16,7 @@ using UnityEngine;
 ///   Bất kỳ Enemy nào (Orc, Skeleton, Boss...) chỉ cần có Health.cs là bị hit
 ///   mà không cần sửa PlayerAttack.cs.
 /// </summary>
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerAttack : MonoBehaviour
 {
     // ─────────────────────────────────────────────────────────────
@@ -23,9 +24,6 @@ public class PlayerAttack : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
 
     [Header("Attack Settings")]
-    [Tooltip("Lượng damage gây cho Enemy mỗi đòn đánh.")]
-    [SerializeField] private int attackDamage = 15;
-
     [Tooltip("Bán kính vùng tấn công (hitbox hình tròn).")]
     [SerializeField] private float attackRadius = 1f;
 
@@ -41,8 +39,15 @@ public class PlayerAttack : MonoBehaviour
     //  PRIVATE
     // ─────────────────────────────────────────────────────────────
 
+    private PlayerStats playerStats;
+
     // Guard chống multi-hit: mỗi lần swing chỉ gây damage đúng 1 lần
     private bool hasDealtDamage = false;
+
+    private void Awake()
+    {
+        playerStats = GetComponent<PlayerStats>();
+    }
 
     // ─────────────────────────────────────────────────────────────
     //  ANIMATION EVENTS — gọi từ clip attack của Player
@@ -57,6 +62,9 @@ public class PlayerAttack : MonoBehaviour
     {
         // Chỉ gây damage 1 lần mỗi animation swing
         if (hasDealtDamage) return;
+
+        int finalDamage = playerStats.GetAttackDamage();
+        DamageType finalDamageType = playerStats.GetAttackDamageType();
 
         // Tính vị trí hitbox dựa theo hướng Player đang nhìn
         // localScale.x > 0 = nhìn phải, < 0 = nhìn trái (theo cách Flip của PlayerController)
@@ -73,8 +81,8 @@ public class PlayerAttack : MonoBehaviour
             IDamageable damageable = hit.GetComponentInParent(typeof(IDamageable)) as IDamageable;
             if (damageable != null)
             {
-                damageable.TakeDamage(new DamageInfo(attackDamage, DamageType.Physical, gameObject));
-                Debug.Log($"[PlayerAttack] Đánh trúng {hit.gameObject.name} | -{attackDamage} HP");
+                damageable.TakeDamage(new DamageInfo(finalDamage, finalDamageType, gameObject));
+                Debug.Log($"[PlayerAttack] Đánh trúng {hit.gameObject.name} | -{finalDamage} HP");
             }
         }
 
