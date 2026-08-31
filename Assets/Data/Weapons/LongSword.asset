@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a1d9cc940f4573a1e391a275da8bd3, type: 3}
+  m_Name: LongSword
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  id: long_sword
+  displayName: Long Sword
+  description: Weapon +50 dame
+  icon: {fileID: -5147858647169533431, guid: dd0930751a93bd248b916eefe3d532ce, type: 3}
+  itemType: 0
+  rarity: 2
+  maxStack: 1
+  damage: 50
+  attackSpeed: 1
+  damageType: 0

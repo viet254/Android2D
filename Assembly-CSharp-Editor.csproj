@@ -57,6 +57,7 @@
     <Compile Include="Assets\Editor\MapBoundsEditor.cs" />
     <Compile Include="Assets\UI\Inventory\Editor\InventoryEquipmentUISetup.cs" />
     <Compile Include="Assets\Inventory\Editor\TrainingSwordPickupSetup.cs" />
+    <Compile Include="Assets\Loot\Editor\OrcLootSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

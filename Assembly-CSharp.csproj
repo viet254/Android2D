@@ -53,6 +53,8 @@
     <Analyzer Include="D:\Unit\6000.5.9f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Loot\Scripts\LootTable.cs" />
+    <Compile Include="Assets\Loot\Scripts\LootEntry.cs" />
     <Compile Include="Assets\Items\ItemData.cs" />
     <Compile Include="Assets\Core\Combat\DamageType.cs" />
     <Compile Include="Assets\Items\Consumables\ConsumableData.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
     <Compile Include="Assets\Player\Combat\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\UI\Inventory\Scripts\InventorySlotUI.cs" />
+    <Compile Include="Assets\Loot\Scripts\LootDropper.cs" />
     <Compile Include="Assets\Inventory\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\UI\Inventory\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Items\ItemType.cs" />

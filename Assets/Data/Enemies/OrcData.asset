@@ -21,3 +21,4 @@ MonoBehaviour:
   attackRange: 1.2
   experienceReward: 30
   attackCooldown: 1.5
+  lootTable: {fileID: 11400000, guid: ab5e49a864c586044aa76eaef6b0bfef, type: 2}

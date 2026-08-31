@@ -12,6 +12,7 @@ public class EnemyData : ScriptableObject
     [SerializeField, Min(0f)] private float attackRange = 1.2f;
     [SerializeField, Min(0)] private int experienceReward = 20;
     [SerializeField, Min(0f)] private float attackCooldown = 1.5f;
+    [SerializeField] private LootTable lootTable;
     public string ID => id;
     public string DisplayName => displayName;
     public int MaxHealth => maxHealth;
@@ -21,4 +22,5 @@ public class EnemyData : ScriptableObject
     public float AttackRange => attackRange;
     public int ExperienceReward => experienceReward;
     public float AttackCooldown => attackCooldown;
+    public LootTable LootTable => lootTable;
 }
