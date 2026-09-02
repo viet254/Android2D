@@ -8,3 +8,5 @@
 [Mm]emoryCaptures/
 *.md
 !README.md
+Assets/ReportDemo/
+tmp/
