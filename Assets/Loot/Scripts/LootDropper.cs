@@ -34,6 +34,11 @@ public class LootDropper : MonoBehaviour
             health.OnDied -= HandleDied;
     }
 
+    public void ResetForRestore()
+    {
+        hasDroppedLoot = false;
+    }
+
     private void HandleDied()
     {
         if (hasDroppedLoot)

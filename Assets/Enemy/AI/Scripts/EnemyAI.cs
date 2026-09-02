@@ -157,6 +157,34 @@ public class EnemyAI : MonoBehaviour
         health.OnDied    -= OnDied;
     }
 
+    public void RestoreAliveState()
+    {
+        StopAllCoroutines();
+        hurtCoroutine = null;
+        isDead = false;
+        isHurting = false;
+        currentState = EnemyState.Idle;
+        playerTransform = null;
+        patrolOrigin = transform.position;
+        patrolGoingRight = true;
+        idleTimer = idleWaitTime;
+        attackTimer = 0f;
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        if (col != null)
+            col.enabled = true;
+        if (enemyAttack != null)
+            enemyAttack.enabled = true;
+
+        anim.speed = 1f;
+        anim.Rebind();
+        anim.Update(0f);
+        anim.SetBool(Hash_IsWalking, false);
+    }
+
     public void Configure(EnemyData data)
     {
         if (data == null) return;

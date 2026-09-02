@@ -153,6 +153,39 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public int RestoreSlots(IReadOnlyList<InventoryRestoreEntry> entries)
+    {
+        EnsureValidSlots();
+
+        for (int i = 0; i < slots.Count; i++)
+            slots[i].Clear();
+
+        int restoredCount = 0;
+        HashSet<int> restoredIndices = new HashSet<int>();
+        if (entries != null)
+        {
+            for (int i = 0; i < entries.Count; i++)
+            {
+                InventoryRestoreEntry entry = entries[i];
+                if (entry.SlotIndex < 0
+                    || entry.SlotIndex >= slots.Count
+                    || entry.Item == null
+                    || entry.Quantity <= 0
+                    || !restoredIndices.Add(entry.SlotIndex))
+                {
+                    continue;
+                }
+
+                slots[entry.SlotIndex].SetItem(entry.Item, entry.Quantity);
+                if (!slots[entry.SlotIndex].IsEmpty)
+                    restoredCount++;
+            }
+        }
+
+        OnInventoryChanged?.Invoke();
+        return restoredCount;
+    }
+
     public int GetItemCount(ItemData item)
     {
         if (item == null)

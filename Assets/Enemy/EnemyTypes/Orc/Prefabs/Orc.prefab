@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 3044745791979690967}
   - component: {fileID: 8862000000000000001}
   - component: {fileID: 8862000000000000002}
+  - component: {fileID: 381667657262159765}
+  - component: {fileID: 3723403479670309462}
   m_Layer: 8
   m_Name: Orc
   m_TagString: Enemy
@@ -251,7 +253,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-
 --- !u!114 &8862000000000000001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4a0457cf2ee8054fa20f145fb0d076b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   data: {fileID: 11400000, guid: d330a27a54a34ca989ddc81883c70ed2, type: 2}
 --- !u!114 &8862000000000000002
@@ -275,6 +276,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ac7ce7d91b7b30479b2e3dee014c4e2, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperienceReward
   experienceReward: 20
+--- !u!114 &381667657262159765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734305931013229197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889f00df37579aa4b851dc35e3c39cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  itemPickupPrefab: {fileID: 2802927267904596069, guid: 68f51f4b77afbcc4eb909ca756a9271d, type: 3}
+  spawnOffset: {x: 0, y: 0.5}
+  minimumPlayerDistance: 1.5
+  groundClearance: 0.2
+  groundProbeHeight: 2
+  groundProbeDistance: 12
+--- !u!114 &3723403479670309462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734305931013229197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba37f2b4dbc90a54a9811edc9bb8e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPersistentEntity
+  persistentId: 
+  prefabSource: {fileID: 0}

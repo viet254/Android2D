@@ -104,6 +104,9 @@ public class AnimatedExperienceHUD : MonoBehaviour
 
     private void HandleExperienceChanged(int current, int required)
     {
+        if (levelText != null && playerExperience != null)
+            levelText.text = $"LEVEL {playerExperience.CurrentLevel}";
+
         if (progressRoutine != null)
             StopCoroutine(progressRoutine);
         progressRoutine = StartCoroutine(AnimateProgressRoutine(current, required));

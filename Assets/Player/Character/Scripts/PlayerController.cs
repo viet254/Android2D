@@ -180,7 +180,8 @@ public class PlayerController : MonoBehaviour
 
     void ApplyMovement()
     {
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        float effectiveMoveSpeed = stats != null ? stats.MoveSpeed : moveSpeed;
+        rb.linearVelocity = new Vector2(moveInput * effectiveMoveSpeed, rb.linearVelocity.y);
 
         if (moveInput > 0f && !facingRight) Flip();
         else if (moveInput < 0f && facingRight) Flip();

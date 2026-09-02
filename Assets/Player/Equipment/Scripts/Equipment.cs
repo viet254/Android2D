@@ -60,6 +60,21 @@ public class Equipment : MonoBehaviour
         return true;
     }
 
+    public bool RestoreWeapon(WeaponData weapon)
+    {
+        EnsureSlots();
+        if (weapon != null && !IsValidWeapon(weapon))
+            return false;
+
+        if (weapon == null)
+            weaponSlot.Clear();
+        else
+            weaponSlot.SetItem(weapon);
+
+        OnEquipmentChanged?.Invoke();
+        return true;
+    }
+
     public bool Unequip(EquipmentSlotType slotType)
     {
         ResolveInventory();

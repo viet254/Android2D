@@ -53,9 +53,13 @@
     <Analyzer Include="D:\Unit\6000.5.9f1\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\UI\Save\Editor\SaveSlotUISetup.cs" />
     <Compile Include="Assets\Items\Consumables\Editor\HealthPotionSetup.cs" />
     <Compile Include="Assets\Editor\MapBoundsEditor.cs" />
     <Compile Include="Assets\UI\Inventory\Editor\InventoryEquipmentUISetup.cs" />
+    <Compile Include="Assets\Player\Skills\Editor\SkillSystemSetup.cs" />
+    <Compile Include="Assets\World\Levels\Editor\LevelProgressionSetup.cs" />
+    <Compile Include="Assets\Save\Editor\SaveSystemSetup.cs" />
     <Compile Include="Assets\Inventory\Editor\TrainingSwordPickupSetup.cs" />
     <Compile Include="Assets\Loot\Editor\OrcLootSetup.cs" />
   </ItemGroup>

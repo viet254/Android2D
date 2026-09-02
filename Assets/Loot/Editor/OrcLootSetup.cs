@@ -25,10 +25,11 @@ public static class OrcLootSetup
 
         EnemyData orcData = FindExactAsset<EnemyData>("OrcData.asset");
         ConsumableData healthPotion = FindExactAsset<ConsumableData>("HealthPotion.asset");
-        if (orcData == null || healthPotion == null)
+        GameObject orcPrefab = FindExactAsset<GameObject>("Orc.prefab");
+        if (orcData == null || healthPotion == null || orcPrefab == null)
         {
             Debug.LogError(
-                "Orc Loot setup requires exactly one OrcData.asset and one HealthPotion.asset.");
+                "Orc Loot setup requires exactly one OrcData.asset, HealthPotion.asset, and Orc.prefab.");
             return;
         }
 
@@ -42,6 +43,13 @@ public static class OrcLootSetup
         LootTable lootTable = FindOrCreateLootTable(healthPotion, undoName);
         ItemPickup pickupPrefab = FindOrCreatePickupPrefab();
         if (lootTable == null || pickupPrefab == null)
+        {
+            Undo.CollapseUndoOperations(undoGroup);
+            return;
+        }
+
+        LootDropper sceneTemplate = FindSceneDropperTemplate(scene, orcData);
+        if (!SynchronizeOrcPrefab(orcPrefab, pickupPrefab, sceneTemplate))
         {
             Undo.CollapseUndoOperations(undoGroup);
             return;
@@ -63,27 +71,55 @@ public static class OrcLootSetup
 
         Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include);
         int configuredCount = 0;
+        int removedOverrideCount = 0;
         for (int i = 0; i < enemies.Length; i++)
         {
             Enemy enemy = enemies[i];
             if (enemy.gameObject.scene != scene || enemy.Data != orcData)
                 continue;
 
-            LootDropper dropper = enemy.GetComponent<LootDropper>();
-            if (dropper == null)
-                dropper = Undo.AddComponent<LootDropper>(enemy.gameObject);
-
-            if (dropper == null)
+            LootDropper[] droppers = enemy.GetComponents<LootDropper>();
+            LootDropper inheritedDropper = null;
+            for (int j = 0; j < droppers.Length; j++)
             {
-                Debug.LogError($"Could not add LootDropper to '{enemy.name}'.", enemy);
-                continue;
+                if (PrefabUtility.GetCorrespondingObjectFromSource(droppers[j]) != null
+                    && !PrefabUtility.IsAddedComponentOverride(droppers[j]))
+                {
+                    inheritedDropper = droppers[j];
+                    break;
+                }
             }
 
-            Undo.RecordObject(dropper, undoName);
-            SerializedObject dropperSerialized = new SerializedObject(dropper);
-            dropperSerialized.FindProperty("itemPickupPrefab").objectReferenceValue = pickupPrefab;
-            dropperSerialized.ApplyModifiedProperties();
-            EditorUtility.SetDirty(dropper);
+            if (inheritedDropper != null)
+            {
+                for (int j = droppers.Length - 1; j >= 0; j--)
+                {
+                    if (droppers[j] != inheritedDropper
+                        && PrefabUtility.IsAddedComponentOverride(droppers[j]))
+                    {
+                        Undo.DestroyObjectImmediate(droppers[j]);
+                        removedOverrideCount++;
+                    }
+                }
+            }
+            else
+            {
+                LootDropper dropper = droppers.Length > 0
+                    ? droppers[0]
+                    : Undo.AddComponent<LootDropper>(enemy.gameObject);
+                if (dropper == null)
+                {
+                    Debug.LogError($"Could not add LootDropper to '{enemy.name}'.", enemy);
+                    continue;
+                }
+
+                Undo.RecordObject(dropper, undoName);
+                SerializedObject dropperSerialized = new SerializedObject(dropper);
+                dropperSerialized.FindProperty("itemPickupPrefab").objectReferenceValue = pickupPrefab;
+                dropperSerialized.ApplyModifiedProperties();
+                EditorUtility.SetDirty(dropper);
+            }
+
             configuredCount++;
         }
 
@@ -95,10 +131,75 @@ public static class OrcLootSetup
         Undo.CollapseUndoOperations(undoGroup);
         Selection.activeObject = lootTable;
         Debug.Log(
-            $"Orc Loot setup complete. Configured {configuredCount} Scene Orc object(s). " +
+            $"Orc Loot setup complete. Orc.prefab now owns LootDropper; checked {configuredCount} Scene Orc object(s) " +
+            $"and removed {removedOverrideCount} obsolete LootDropper override(s). " +
             "The test table drops Health Potion x1 at 100% until you rebalance it. " +
             "Review changes, then press Ctrl+S to save the Scene.",
             lootTable);
+    }
+
+    private static LootDropper FindSceneDropperTemplate(Scene scene, EnemyData orcData)
+    {
+        Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsInactive.Include);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i].gameObject.scene == scene && enemies[i].Data == orcData)
+            {
+                LootDropper dropper = enemies[i].GetComponent<LootDropper>();
+                if (dropper != null)
+                    return dropper;
+            }
+        }
+
+        return null;
+    }
+
+    private static bool SynchronizeOrcPrefab(
+        GameObject orcPrefab,
+        ItemPickup pickupPrefab,
+        LootDropper sceneTemplate)
+    {
+        string prefabPath = AssetDatabase.GetAssetPath(orcPrefab);
+        GameObject contents = PrefabUtility.LoadPrefabContents(prefabPath);
+        try
+        {
+            LootDropper[] existing = contents.GetComponents<LootDropper>();
+            LootDropper prefabDropper = existing.Length > 0
+                ? existing[0]
+                : contents.AddComponent<LootDropper>();
+
+            for (int i = existing.Length - 1; i >= 1; i--)
+                UnityEngine.Object.DestroyImmediate(existing[i]);
+
+            if (sceneTemplate != null)
+                EditorUtility.CopySerialized(sceneTemplate, prefabDropper);
+
+            SerializedObject serialized = new SerializedObject(prefabDropper);
+            SerializedProperty pickupProperty = serialized.FindProperty("itemPickupPrefab");
+            if (pickupProperty == null)
+            {
+                Debug.LogError("Orc Loot setup failed: LootDropper.itemPickupPrefab was not found.");
+                return false;
+            }
+
+            pickupProperty.objectReferenceValue = pickupPrefab;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(prefabDropper);
+
+            GameObject saved = PrefabUtility.SaveAsPrefabAsset(contents, prefabPath);
+            if (saved == null)
+            {
+                Debug.LogError($"Orc Loot setup failed to save prefab '{prefabPath}'.");
+                return false;
+            }
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(contents);
+        }
+
+        AssetDatabase.ImportAsset(prefabPath, ImportAssetOptions.ForceUpdate);
+        return true;
     }
 
     private static LootTable FindOrCreateLootTable(ConsumableData healthPotion, string undoName)

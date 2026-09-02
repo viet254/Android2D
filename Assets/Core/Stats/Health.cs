@@ -106,6 +106,23 @@ public class Health : MonoBehaviour, IDamageable
         return true;
     }
 
+    public bool RestoreState(int currentHealth, bool alive)
+    {
+        if (alive)
+        {
+            CurrentHealth = Mathf.Clamp(currentHealth, 1, maxHealth);
+            IsDead = false;
+        }
+        else
+        {
+            CurrentHealth = 0;
+            IsDead = true;
+        }
+
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        return true;
+    }
+
     public void ConfigureMaxHealth(int value, bool refill = true)
     {
         maxHealth = Mathf.Max(1, value);

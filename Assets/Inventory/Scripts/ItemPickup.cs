@@ -19,6 +19,7 @@ public class ItemPickup : MonoBehaviour
 
     public ItemData Item => item;
     public int Quantity => quantity;
+    public bool IsRuntimeDrop { get; private set; }
 
     public bool Configure(ItemData newItem, int newQuantity)
     {
@@ -44,6 +45,22 @@ public class ItemPickup : MonoBehaviour
         return true;
     }
 
+    public bool RestoreRuntimeDrop(ItemData restoredItem, int restoredQuantity, Vector3 restoredPosition)
+    {
+        if (!Configure(restoredItem, restoredQuantity))
+            return false;
+
+        if (dropAnimationRoutine != null)
+            StopCoroutine(dropAnimationRoutine);
+
+        transform.position = restoredPosition;
+        IsRuntimeDrop = true;
+        canCollect = true;
+        isProcessing = false;
+        dropAnimationRoutine = null;
+        return true;
+    }
+
     public float GetVisualBottomOffset()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -55,6 +72,7 @@ public class ItemPickup : MonoBehaviour
 
     public void PlayDropAnimation(Vector3 landingPosition)
     {
+        IsRuntimeDrop = true;
         if (dropAnimationRoutine != null)
             StopCoroutine(dropAnimationRoutine);
 

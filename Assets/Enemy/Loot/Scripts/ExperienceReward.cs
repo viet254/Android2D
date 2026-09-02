@@ -38,6 +38,11 @@ public class ExperienceReward : MonoBehaviour
         if (data != null) experienceReward = data.ExperienceReward;
     }
 
+    public void ResetForRestore()
+    {
+        hasRewardedXP = false;
+    }
+
     // ─────────────────────────────────────────────────────────────
     //  LIFECYCLE
     // ─────────────────────────────────────────────────────────────

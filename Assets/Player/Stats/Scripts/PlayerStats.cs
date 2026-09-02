@@ -63,6 +63,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField] private int defense = 0;
     [SerializeField] private float moveSpeed = 5f;
 
+    private int _skillMaxHealthBonus;
+    private int _skillAttackBonus;
+    private float _skillMoveSpeedBonus;
+
     private PlayerController _controller;
     private Health _health;
     private Equipment _equipment;
@@ -81,7 +85,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
             ? _equipment.EquippedWeapon.Damage
             : 0;
 
-        return Mathf.Max(0, attack + weaponDamage);
+        return Mathf.Max(0, attack + _skillAttackBonus + weaponDamage);
     }
 
     public DamageType GetAttackDamageType()
@@ -94,7 +98,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
             : DamageType.Physical;
     }
     public int Defense => defense;
-    public float MoveSpeed => moveSpeed;
+    public float MoveSpeed => Mathf.Max(0f, moveSpeed + _skillMoveSpeedBonus);
     public bool IsDead { get; private set; }
 
     // HP hiển thị trơn tru (lerp về currentHP)
@@ -182,6 +186,49 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void ChangeMP(float delta)
     {
         currentMP = Mathf.Clamp(currentMP + delta, 0f, maxMP);
+    }
+
+    public void ApplySkillModifiers(int maxHealthBonus, int attackBonus, float moveSpeedBonus)
+    {
+        _skillMaxHealthBonus = Mathf.Max(0, maxHealthBonus);
+        _skillAttackBonus = attackBonus;
+        _skillMoveSpeedBonus = moveSpeedBonus;
+
+        if (_health == null)
+            _health = GetComponent<Health>();
+        if (_health == null)
+            return;
+
+        int modifiedMaximum = Mathf.Max(1, Mathf.RoundToInt(maxHP) + _skillMaxHealthBonus);
+        int preservedHealth = Mathf.Min(_health.CurrentHealth, modifiedMaximum);
+        bool wasAlive = !_health.IsDead && preservedHealth > 0;
+        _health.ConfigureMaxHealth(modifiedMaximum, false);
+        _health.RestoreState(preservedHealth, wasAlive);
+        _displayHP = _health.CurrentHealth;
+        UpdateBars();
+    }
+
+    public bool RestoreHealthState(int currentHealth)
+    {
+        if (_health == null)
+            _health = GetComponent<Health>();
+
+        if (_health == null || currentHealth <= 0)
+            return false;
+
+        bool wasDead = IsDead;
+        if (wasDead)
+            StopAllCoroutines();
+
+        IsDead = false;
+        _health.RestoreState(currentHealth, true);
+        _displayHP = _health.CurrentHealth;
+
+        if (wasDead && _controller != null)
+            _controller.OnRespawn();
+
+        UpdateBars();
+        return true;
     }
 
     // ────────────────────────────────────────────────────────────────

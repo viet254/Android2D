@@ -111,6 +111,22 @@ public class PlayerExperience : MonoBehaviour
         OnExperienceChanged?.Invoke(currentXP, xpToNextLevel);
     }
 
+    public bool RestoreProgress(int level, int experience)
+    {
+        if (level < 1 || experience < 0)
+            return false;
+
+        int required = CalculateXPRequired(level);
+        if (required <= 0)
+            return false;
+
+        currentLevel = level;
+        xpToNextLevel = required;
+        currentXP = Mathf.Clamp(experience, 0, xpToNextLevel - 1);
+        OnExperienceChanged?.Invoke(currentXP, xpToNextLevel);
+        return true;
+    }
+
     // ─────────────────────────────────────────────────────────────
     //  PRIVATE
     // ─────────────────────────────────────────────────────────────
