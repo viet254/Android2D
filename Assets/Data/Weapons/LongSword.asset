@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   id: long_sword
   displayName: Long Sword
-  description: Weapon +50 dame
+  description: "V\u0169 kh\xED +50 t\u1EA5n c\xF4ng"
   icon: {fileID: -5147858647169533431, guid: dd0930751a93bd248b916eefe3d532ce, type: 3}
   itemType: 0
   rarity: 2

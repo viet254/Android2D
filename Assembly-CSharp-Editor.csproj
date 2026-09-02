@@ -61,6 +61,7 @@
     <Compile Include="Assets\World\Levels\Editor\LevelProgressionSetup.cs" />
     <Compile Include="Assets\Save\Editor\SaveSystemSetup.cs" />
     <Compile Include="Assets\Inventory\Editor\TrainingSwordPickupSetup.cs" />
+    <Compile Include="Assets\UI\MainMenu\Editor\MenuAndBackgroundSetup.cs" />
     <Compile Include="Assets\Loot\Editor\OrcLootSetup.cs" />
   </ItemGroup>
   <ItemGroup>

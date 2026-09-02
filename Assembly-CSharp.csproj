@@ -70,6 +70,7 @@
     <Compile Include="Assets\Core\Combat\IDamageable.cs" />
     <Compile Include="Assets\Player\Skills\Scripts\SkillDatabase.cs" />
     <Compile Include="Assets\Save\Scripts\World\EnemyPersistenceState.cs" />
+    <Compile Include="Assets\UI\MainMenu\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\UI\Equipment\Scripts\EquipmentSlotUI.cs" />
     <Compile Include="Assets\UI\Save\Scripts\SaveMenuMode.cs" />
     <Compile Include="Assets\Player\Stats\Scripts\PlayerExperience.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Save\Scripts\SaveSlotStorage.cs" />
     <Compile Include="Assets\Inventory\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\World\Levels\Scripts\PlayerTransitionState.cs" />
+    <Compile Include="Assets\World\Background\Scripts\ScrollingBackground.cs" />
     <Compile Include="Assets\UI\Inventory\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Save\Scripts\World\EnemyPersistenceRegistry.cs" />
     <Compile Include="Assets\Items\ItemType.cs" />

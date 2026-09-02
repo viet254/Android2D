@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableData
   id: large_health_potion
   displayName: Large Health Potion
-  description: Restores 50 health
+  description: "H\u1ED3i 50 m\xE1u khi d\xF9ng"
   icon: {fileID: 0}
   itemType: 3
   rarity: 1

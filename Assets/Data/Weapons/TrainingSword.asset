@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   id: training_sword
   displayName: Training Sword
-  description: A basic sword used to verify the weapon data foundation.
+  description: "M\u1ED9t thanh ki\u1EBFm kh\u1EDFi \u0111\u1EA7u +15 t\u1EA5n c\xF4ng"
   icon: {fileID: -4898731100839214754, guid: dd0930751a93bd248b916eefe3d532ce, type: 3}
   itemType: 0
   rarity: 0
