@@ -2,9 +2,10 @@ using UnityEngine;
 
 /// <summary>
 /// Implements the two-background loop described on slide 20.
-/// Place this object under the camera so the background follows the view.
+/// The object can live under Grid; LateUpdate keeps it aligned with the camera.
 /// </summary>
 [DisallowMultipleComponent]
+[DefaultExecutionOrder(1000)]
 public sealed class ScrollingBackground : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer backgroundA;
@@ -57,6 +58,17 @@ public sealed class ScrollingBackground : MonoBehaviour
         WrapAfterOther(backgroundB, backgroundA);
     }
 
+    private void LateUpdate()
+    {
+        if (targetCamera == null)
+        {
+            return;
+        }
+
+        Vector3 cameraPosition = targetCamera.transform.position;
+        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, transform.position.z);
+    }
+
     private void RebuildLayout()
     {
         if (!IsReady() || !targetCamera.orthographic)
@@ -76,6 +88,9 @@ public sealed class ScrollingBackground : MonoBehaviour
         visibleHalfWidth = visibleWidth * 0.5f;
         backgroundA.transform.localPosition = Vector3.zero;
         backgroundB.transform.localPosition = new Vector3(panelWidth, 0f, 0f);
+
+        Vector3 cameraPosition = targetCamera.transform.position;
+        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, transform.position.z);
 
         lastAspect = targetCamera.aspect;
         lastOrthographicSize = targetCamera.orthographicSize;

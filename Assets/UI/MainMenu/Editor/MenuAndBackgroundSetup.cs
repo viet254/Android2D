@@ -19,7 +19,8 @@ public static class MenuAndBackgroundSetup
     private const string MenuScenePath = "Assets/Scenes/Menu.unity";
     private const string GameplayScenePath = "Assets/Scenes/SampleScene.unity";
     private const string BackgroundPath = "Assets/World/Background/Sprites/forest_mountains_background.png";
-    private const string GeneratedBackgroundName = "Moving Background (Slide 20)";
+    private const string GeneratedBackgroundName = "Dynamic Background (Slide 20)";
+    private const string LegacyBackgroundName = "Moving Background (Slide 20)";
 
     [InitializeOnLoadMethod]
     private static void ScheduleAutomaticSetup()
@@ -182,15 +183,27 @@ public static class MenuAndBackgroundSetup
             throw new MissingReferenceException("SampleScene không có Camera để gắn background.");
         }
 
+        Grid grid = Object.FindAnyObjectByType<Grid>();
+        if (grid == null)
+        {
+            throw new MissingReferenceException("SampleScene không có Grid để chứa background động.");
+        }
+
         GameObject previous = GameObject.Find(GeneratedBackgroundName);
         if (previous != null)
         {
             Object.DestroyImmediate(previous);
         }
 
+        GameObject legacy = GameObject.Find(LegacyBackgroundName);
+        if (legacy != null)
+        {
+            Object.DestroyImmediate(legacy);
+        }
+
         GameObject root = new GameObject(GeneratedBackgroundName, typeof(ScrollingBackground));
-        root.transform.SetParent(camera.transform, false);
-        root.transform.localPosition = new Vector3(0f, 0f, 10f);
+        root.transform.SetParent(grid.transform, false);
+        root.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, 0f);
 
         SpriteRenderer first = CreateBackgroundPanel("Background A", root.transform, background);
         SpriteRenderer second = CreateBackgroundPanel("Background B", root.transform, background);
